@@ -19,11 +19,12 @@
 
 def who_do_you_know():
     people = input("Enter the names of people you know, separated by commas: ")
-    people_list = people.split(",")
-    people_whithout_space =[]
-    for person in people_list:
-        people_whithout_space.append(person.strip())
-    return people_list
+    # people_list = people.split(",")
+    # people_whithout_space =[]
+    # for person in people_list:
+    #     people_whithout_space.append(person.strip())
+    # return people_list
+    return [person.strip() for person in people.split(",")]
 
 def ask_user():
     person = input("Enter a name of someone you know: ")
