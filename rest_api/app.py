@@ -1,8 +1,8 @@
-from flask import Flask
+from flask import Flask, jsonify
 
 app = Flask(__name__)
 
-store = [
+stores = [
     {
         'name': 'My Wonderful Store',
         'item' : [
@@ -18,7 +18,7 @@ store = [
 # GET - used to send data back only
 
 # POST /store data: {name:}
-@app.route('/store', method=['POST'])
+@app.route('/store', methods=['POST'])
 def create_store():
     pass
 
@@ -30,10 +30,10 @@ def get_store(name):
 # GET /store
 @app.route('/store')
 def get_stores():
-    pass
+    return jsonify({'stores': stores}) # jsonify 는 dictionary만 JSON으로 변경가능 하므로 바꿔주는것
 
 # POST /store/<string:name>/item {name:, price:}
-@app.route('/store/<string:name>/item', method=['POST'])
+@app.route('/store/<string:name>/item', methods=['POST'])
 def create_item_in_store(name):
     pass
 
